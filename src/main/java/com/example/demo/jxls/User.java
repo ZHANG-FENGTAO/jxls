@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.jxls;
 
 /**
  * Created zft on 2018/6/3.
@@ -8,6 +8,14 @@ public class User {
     private String name;
 
     private Integer sex;
+
+    public User() {
+    }
+
+    public User(String name, Integer sex) {
+        this.name = name;
+        this.sex = sex;
+    }
 
     public String getName() {
         return name;
