@@ -25,23 +25,20 @@ public class JxlsTestController {
     @RequestMapping("/export")
     public void export(HttpServletResponse response) throws Exception {
         User user = new User();
-        user.setName("张山");
-        user.setSex("男");
+        user.setName("张三");
+        user.setSex(1);
         User user1 = new User();
         user1.setName("李四");
-        user1.setSex("女");
+        user1.setSex(2);
         List<User> list = new ArrayList<User>();
         list.add(user);
         list.add(user1);
         Map<String, Object> data = new HashMap<>(16);
         data.put("list", list);
         String fileName = "test";
-        response.setHeader("Content-Disposition", "attachment;filename="
-                + new String(fileName.getBytes(), "ISO8859-1") + ".xlsx");
-        response.setContentType("application/vnd.ms-excel");
         try {
             XLSTransformer xlsTransformer = new XLSTransformer();
-            File tmpFile = File.createTempFile("DealDTO", ".xlsx");
+            File tmpFile = File.createTempFile("test", ".xlsx");
             String tplName = "test.xls";
             String templatePath = Thread.currentThread()
                     .getContextClassLoader().getResource(tplName).getPath();
